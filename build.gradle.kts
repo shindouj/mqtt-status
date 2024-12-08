@@ -1,9 +1,11 @@
 plugins {
     kotlin("jvm") version "2.1.0"
+    id("com.palantir.git-version") version "3.1.0"
 }
 
+val gitVersion: groovy.lang.Closure<String> by extra
 group = "net.jeikobu.mqtt-status"
-version = "1.0"
+version = gitVersion()
 
 repositories {
     mavenCentral()
