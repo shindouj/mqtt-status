@@ -36,7 +36,7 @@ Prerequisites: JDK 21 installed.
     onValue: "true"
     offValue: "false"
     retainWill: true
-    qos: Qos.AT_LEAST_ONCE
+    qos: AT_LEAST_ONCE # available values: AT_MOST_ONCE (0), AT_LEAST_ONCE (1), EXACTLY_ONCE (2)
     ```
     These are the defaults - in an unlikely scenario you like them all you can skip this step. 
     If not, modify to your liking. You can leave only the properties you want to change.

@@ -1,0 +1,8 @@
+mqttHost: hocallost
+mqttPort: 3881
+topic: john/paul/the/second
+onValue: "off"
+offValue: "on"
+retainWill: false
+qos: AT_MOST_ONCE
+interval: 10s

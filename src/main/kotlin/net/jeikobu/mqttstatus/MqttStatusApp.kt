@@ -3,14 +3,11 @@ package net.jeikobu.mqttstatus
 import MQTTClient
 import mqtt.MQTTVersion
 import mqtt.Subscription
-import mqtt.packets.Qos
 import mqtt.packets.mqttv5.SubscriptionOptions
 import org.tinylog.kotlin.Logger
-import kotlin.time.Duration
-import kotlin.time.Duration.Companion.seconds
 
 @OptIn(ExperimentalUnsignedTypes::class)
-class MqttStatusApp(private val scheduler: Scheduler, private val config: Config, private val interval: Duration = 30.seconds) {
+class MqttStatusApp(private val scheduler: Scheduler, private val config: Config) {
     fun run() {
         Logger.trace { "Configuration file = $config" }
 
@@ -19,11 +16,11 @@ class MqttStatusApp(private val scheduler: Scheduler, private val config: Config
 
         val client = getClient(config, offValue)
 
-        client.subscribe(listOf(Subscription(config.topic, SubscriptionOptions(Qos.EXACTLY_ONCE))))
+        client.subscribe(listOf(Subscription(config.topic, SubscriptionOptions(config.qos))))
         repeat(times = 2) { client.step() }
 
         publish(client, config, onValue)
-        scheduler.schedule(interval = interval, task = { publish(client, config, onValue) })
+        scheduler.schedule(interval = config.interval, task = { publish(client, config, onValue) })
     }
 
     private fun getClient(config: Config, offValue: UByteArray): MQTTClient = MQTTClient(
