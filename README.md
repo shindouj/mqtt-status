@@ -16,7 +16,8 @@ Prerequisites: JDK 21 installed.
 1.  `git clone`
 2.  `./gradlew jar`
 3.  Copy `build/libs/*` to `~/.local/bin/`
-4.  Create `~/.config/systemd/user` and write `mqtt_status.service`:
+4.  Alternatively - you can download the latest release from [here](https://github.com/shindouj/mqtt-status/releases/latest).
+5.  Create `~/.config/systemd/user` and write `mqtt_status.service`:
     ```
     [Unit]
     Description = Very simple MQTT client that updates power status every 30 seconds
@@ -28,7 +29,7 @@ Prerequisites: JDK 21 installed.
     WantedBy = plasma-workspace.target
     ```
     Your mileage may vary when it comes to `WantedBy` - check available targets with `systemctl --user list-units --type=target`.
-5.  Create `~/.mqttstatus/config.yml`:
+6.  Create `~/.mqttstatus/config.yml`:
     ```yaml
     mqttHost: localhost
     mqttPort: 1883
@@ -41,7 +42,7 @@ Prerequisites: JDK 21 installed.
     ```
     These are the defaults - in an unlikely scenario you like them all you can skip this step. 
     If not, modify to your liking. You can leave only the properties you want to change.
-6.  `systemctl --user enable mqtt_status.service`
+7.  `systemctl --user enable mqtt_status.service`
 
 Pull requests and improvement ideas are welcome, although new features (and especially more data!) are unlikely to be merged.
 This solution aims to be extremely simple.
