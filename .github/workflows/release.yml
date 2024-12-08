@@ -27,3 +27,4 @@ jobs:
           body_path: CHANGELOG.md
           repository: shindouj/mqtt-status
           files: build/libs/mqtt-status*.jar
+          token: ${{ secrets.CR_PAT }}
