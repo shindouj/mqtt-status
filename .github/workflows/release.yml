@@ -1,0 +1,29 @@
+name: Create release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: Build with Gradle
+        run: ./gradlew build jar
+      - name: Generate release changelog
+        uses: janheinrichmerker/action-github-changelog-generator@v2.3
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: CHANGELOG.md
+          repository: shindouj/mqtt-status
+          files: build/libs/mqtt-status*.jar
