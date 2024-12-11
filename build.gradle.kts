@@ -13,7 +13,7 @@ repositories {
 
 dependencies {
     implementation("io.github.davidepianca98:kmqtt-common:0.4.8")
-    implementation("io.github.davidepianca98:kmqtt-client:0.4.8")
+    implementation("io.github.davidepianca98:kmqtt-client:1.0.0")
     implementation("com.sksamuel.hoplite:hoplite-core:2.9.0")
     implementation("com.sksamuel.hoplite:hoplite-yaml:2.9.0")
     implementation("org.tinylog:tinylog-api-kotlin:2.7.0")
