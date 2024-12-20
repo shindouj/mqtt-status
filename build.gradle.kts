@@ -18,7 +18,7 @@ dependencies {
     implementation("com.sksamuel.hoplite:hoplite-yaml:2.9.0")
     implementation("org.tinylog:tinylog-api-kotlin:2.7.0")
     implementation("org.tinylog:tinylog-impl:2.7.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
 
     testImplementation(kotlin("test"))
     testImplementation("io.github.davidepianca98:kmqtt-broker:0.4.8")
