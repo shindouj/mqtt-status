@@ -21,7 +21,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
 
     testImplementation(kotlin("test"))
-    testImplementation("io.github.davidepianca98:kmqtt-broker:0.4.8")
+    testImplementation("io.github.davidepianca98:kmqtt-broker:1.0.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.1")
 }
 
