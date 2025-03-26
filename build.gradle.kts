@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.0"
-    id("com.palantir.git-version") version "3.1.0"
+    id("com.palantir.git-version") version "3.2.0"
 }
 
 val gitVersion: groovy.lang.Closure<String> by extra
